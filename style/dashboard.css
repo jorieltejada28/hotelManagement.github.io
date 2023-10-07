@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --orange: rgb(212, 139, 4);
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.container{
+    position: relative;
+    width: 100%;
+}
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--orange);
+    border-left: 15px solid var(--orange);
+    transition: 0.4s;
+    overflow: hidden;
+    font-size: small;
+}
+.navigation.active{
+    width: 80px;  
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    /* border-bottom-left-radius: 30px; */
+}
+.navigation ul li:hover,
+.navigation ul li.hovered{
+    background: var(--white);
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a{
+    color: var(--orange);
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.navigation ul li a .icon1{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75em;
+}
+.navigation ul li a .icon1 ion-icon{
+    font-size: 40px;
+}
+.navigation ul li a .title1{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 50px;
+    text-align: start;
+    white-space: nowrap;
+    font-weight: 950;
+    font-size: larger;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 50px;
+    text-align: start;
+    white-space: nowrap;
+}
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* box-shadow: 35px 35px 0 10px var(--white); */
+    pointer-events: none;
+}
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    transition: 0.4s;
+}
+.main.active{
+    width: calc(100% - 80px);
+    left: 80px;
+    transition: 0.4s;
+}
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.toggle{
+    top: 0;
+    width: 60px;
+    height: 60px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    background: var(--orange);
+    height: 47px;
+    width: 50px;
+    border-radius: 15px;
+}
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 20px;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--orange);
+}
+.user{
+    position: relative;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    font-size: xx-large;
+    color: var(--orange);
+}
+
+.cardBox{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+}
+.cardBox .card{
+    position: relative;
+    background: var(--white);
+    margin-top: 100px;
+    margin-bottom: -100px;
+    padding: 50px; 
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+}
+.cardBox .card .numbers{
+    position: relative;
+    padding-left: 40px;
+    font-weight: 500px;
+    font-size: 2.5em;
+    color: var(--orange);
+}
+.cardBox .card .cardName{
+    color: var(--black2);
+    padding-left: 40px;
+    font-size: 1.1em;
+    margin: 5px;
+}
+.cardBox .card .iconBx{
+    font-size: 3.5em;
+    padding-right: 50px; 
+    color: var(--black2);
+}
+
+.cardBox .card1{
+    position: relative;
+    background: var(--white);
+    margin-top: 100px;
+    margin-bottom: -100px;
+    padding: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+}
+.cardBox .card1 .numbers1{
+    position: relative;
+    padding-left: 40px;
+    font-weight: 500px;
+    font-size: 2.5em;
+    color: var(--orange);
+}
+.cardBox .card1 .cardName1{
+    color: var(--black2);
+    padding-left: 40px;
+    font-size: 1.1em;
+    margin: 5px;
+}
+.cardBox .card1 .iconBx1{
+    font-size: 3.5em;
+    padding-right: 50px; 
+    color: var(--black2);
+}
+
+@media (max-width:991px){
+    .navigation{
+        left: -300px;
+    }
+    .navigation.active{
+        width: 300px;
+        left: 0;
+    }
+    .main{
+        width: 100%;
+        left: 0;
+    }
+    .main.active{
+        left: 300px;
+    }
+    .cardBox{
+        grid-template-columns: repeat(2,1fr);
+    }
+}  
+
+@media (max-width:768px){
+    .cardBox{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+.sun{
+    position: relative;
+    font-size: 40px;
+    cursor: pointer;
+    margin-top: 50px;
+    transform: translate(-50%, -50%); 
+}
+
+
+/* navigation background dark mode*/
+.dark-mode{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: rgb(38, 37, 37);
+    border-left: 10px solid rgb(38, 37, 37);
+    transition: 0.4s;
+    overflow: hidden;
+}
+.dark-mode .active{
+    width: 80px;  
+}
+.dark-mode ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.dark-mode ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    /* border-bottom-left-radius: 30px; */
+}
+.dark-mode ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.dark-mode ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+.dark-mode ul li a .icon1{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: var(--orange);
+}
+.dark-mode ul li a .icon1 ion-icon{
+    font-size: 40px;
+}
+.dark-mode ul li a .title1{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 50px;
+    text-align: start;
+    white-space: nowrap;
+    color: var(--orange);
+    font-weight: 950;
+    font-size: larger;
+}
+/* dark mode hover*/
+.dark-mode ul li:hover,
+.dark-mode ul li.hovered{
+    background: #0D0D0D;
+}
+.dark-mode ul li:hover a,
+.dark-mode ul li.hovered a{
+    color: var(--orange);
+}
+.dark-mode ul li:hover a::before,
+.dark-mode ul li.hovered a::before{
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: -50px;
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px #0D0D0D;
+    pointer-events: none;
+}
+.dark-mode ul li:hover a::after,
+.dark-mode ul li.hovered a::after{
+    content: "";
+    position: absolute;
+    right: 0px;
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+    /* box-shadow: 35px 35px 0 10px var(--white); */
+    pointer-events: none;
+}
+
+.dark-box .card{
+    position: relative;
+    background: rgb(38, 37, 37);
+    margin-top: 100px;
+    margin-bottom: -100px;
+    padding: 50px; 
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(81, 58, 0, 0.468);
+}
+.dark-box .card .numbers{
+    position: relative;
+    padding-left: 40px;
+    font-weight: 500px;
+    font-size: 2.5em;
+    color: var(--orange);
+}
+.dark-box .card .cardName{
+    color: var(--white);
+    padding-left: 40px;
+    font-size: 1.1em;
+    margin: 5px;
+}
+.dark-box .card .iconBx{
+    font-size: 3.5em;
+    padding-right: 50px; 
+    color: var(--white);
+}
+
+.dark-box .card1{
+    position: relative;
+    background:  rgb(38, 37, 37);
+    margin-top: 100px;
+    margin-bottom: -100px;
+    padding: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(81, 58, 0, 0.468);
+}
+.dark-box .card1 .numbers1{
+    position: relative;
+    padding-left: 40px;
+    font-weight: 500px;
+    font-size: 2.5em;
+    color: var(--orange);
+}
+.dark-box .card1 .cardName1{
+    color: var(--white);
+    padding-left: 40px;
+    font-size: 1.1em;
+    margin: 5px;
+}
+.dark-box .card1 .iconBx1{
+    font-size: 3.5em;
+    padding-right: 50px; 
+    color: var(--white);
+}
